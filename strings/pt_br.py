@@ -14,7 +14,10 @@ text_button_0 = "Escolha o arquivo"
 text_button_1 = "Criptografar"
 text_button_2 = "Salvar"
 text_button_3 = "Descriptografar"
-text_credits = "Por Caio Madeira"
+text_credits = "Créditos"
+text_credits_2 = "\n\nCryptsome V1\nPor Caio Madeira, 2021\nGitHub: github.com/CaioMadeira\nMIT License\n\n\tVocê pode " \
+                 "achar todo o conteúdo no repositório:\t\ngithub.com/CaioMadeira/Cryptosome\n\n "
+
 text_quit = "Sair"
 
 fonts = {
