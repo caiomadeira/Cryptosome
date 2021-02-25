@@ -1,9 +1,10 @@
 from functionalities import Functionalities
 from tkinter import *
-from tkinter import ttk
 from PIL import ImageTk, Image
 import dotenv
 import os
+from strings.pt_br import text_label_8, text_label_2, text_button_0, text_button_2, text_button_1, text_button_3, fonts, \
+    text_quit, text_credits
 
 dotenv.find_dotenv()
 dotenv.load_dotenv()
@@ -24,9 +25,26 @@ class MainApplication(Functionalities):
         self.root.geometry(os.getenv('screen_size'))
         self.root.columnconfigure(0, weight=1)
         self.root.iconbitmap('static/img/favicon.ico')
-        # self.root.protocol("WM_DELETE_WINDOW", self.root.iconify)
+        self.root.protocol("WM_DELETE_WINDOW", self.root.iconify)
         self.root.resizable(False, False)
         self.root.configure(background=os.getenv('gray'))
+
+    def menu_top(self):
+        credits_label = Label(self.frame_encrypt,
+                         width=15,
+                         bg=os.getenv('blue'),
+                         fg=os.getenv('white'),
+                         text=text_credits,
+                         font=(fonts['Helvetica'], 8))
+        credits_label.place(x=10, y=10)
+
+        quit_btn = Button(self.frame_encrypt,
+                          width=5,
+                          bg=os.getenv('blue_2'),
+                          fg=os.getenv('black'),
+                          text=text_quit,
+                          command=self.quit)
+        quit_btn.place(x=460, y=10)
 
     def screen_frames(self):
         self.frame_encrypt = Frame(self.root)
@@ -43,8 +61,14 @@ class MainApplication(Functionalities):
 
     def widgets(self):
         self.header()
-        key_label = Label(self.frame_encrypt, text=os.getenv('text_label_8'),
-                          font=os.getenv('font_2', os.getenv('smallsize_1')), bg=os.getenv('blue'), fg=os.getenv('blue_1'))
+        self.menu_top()
+
+        key_label = Label(self.frame_encrypt,
+                          text=text_label_8,
+                          font=(fonts['Helvetica'], 12, 'bold'),
+                          bg=os.getenv('blue'),
+                          fg=os.getenv('blue_1'))
+
         key_label.grid(pady=(0, 2))
 
         self.key_entry_var = IntVar()
@@ -53,43 +77,69 @@ class MainApplication(Functionalities):
 
         # ESCOLHER CAMINHO P/ ABRIR ==========================
 
-        self.error_location = Label(self.frame_encrypt, text=os.getenv('text_label_2'), fg=os.getenv('blue_1'),
-                                    font=os.getenv('font_2'), bg=os.getenv('blue'))
+        self.error_location = Label(self.frame_encrypt,
+                                    text=text_label_2,
+                                    fg=os.getenv('blue_1'),
+                                    font=(fonts['Helvetica'], 12, 'bold'),
+                                    bg=os.getenv('blue'))
         self.error_location.grid()
 
-        choose_path_button = Button(self.frame_encrypt, width=os.getenv('small_size_button'), bg=os.getenv('blue_2'),
+        choose_path_button = Button(self.frame_encrypt,
+                                    width=os.getenv('small_size_button'),
+                                    bg=os.getenv('blue_2'),
                                     fg=os.getenv('black'),
-                                    text=os.getenv('text_button_0'), command=self.open_file_path_to_choice)
+                                    text=text_button_0,
+                                    command=self.open_file_path_to_choice)
         choose_path_button.grid(pady=(2, 10))
         # =====================================================
         # ESCOLHER CAMINHO P/ SALVAR ==========================
+        '''
+                LABEL - ERRO 2
+        '''
 
-        self.error_location_2 = Label(self.frame_encrypt, text=os.getenv('text_label_2'), fg=os.getenv('blue_1'),
-                                      font=os.getenv('font_2'), bg=os.getenv('blue'))
+        self.error_location_2 = Label(self.frame_encrypt,
+                                      text=text_label_2,
+                                      fg=os.getenv('blue_1'),
+                                      font=(fonts['Helvetica'], 12, 'bold'),
+                                      bg=os.getenv('blue'))
         self.error_location_2.grid()
 
-        choose_path_button_2 = Button(self.frame_encrypt, width=os.getenv('small_size_button'), bg=os.getenv('blue_2'),
+        choose_path_button_2 = Button(self.frame_encrypt,
+                                      width=os.getenv('small_size_button'),
+                                      bg=os.getenv('blue_2'),
                                       fg=os.getenv('black'),
-                                      text=os.getenv('text_button_2'), command=self.open_file_path_to_save)
+                                      text=text_button_2,
+                                      command=self.open_file_path_to_save)
         choose_path_button_2.grid(pady=(2, 10))
-        # =====================================================
-        # ESCOLHER A HASH E ENCRYPT ===========================
-        # choose_hash_label = Label(self.frame_encrypt, text=os.getenv('text_label_5'), font=os.getenv('smallsize_2'))
-        # choose_hash_label.grid(pady=10)
-        #
-        # choice_hash_box = ttk.Combobox(self.frame_encrypt, values=os.getenv('choice_hash'))
-        # choice_hash_box.grid(pady=10)
-
-        encrypt_button = Button(self.frame_encrypt, text=os.getenv('text_button_1'), width=10, bg=os.getenv('blue_2'),
-                                fg=os.getenv('black'), command=self.encrypt_file)
+        '''
+                BUTTON - EnCRYPT
+        '''
+        encrypt_button = Button(self.frame_encrypt,
+                                text=text_button_1,
+                                width=10, bg=os.getenv('blue_2'),
+                                fg=os.getenv('black'),
+                                command=self.encrypt_file)
         encrypt_button.grid(pady=10)
 
-        decrypt_button = Button(self.frame_encrypt, text=os.getenv('text_button_3'), width=12, bg=os.getenv('blue_2'),
-                                fg=os.getenv('black'), command=self.decrypt_file)
+        '''
+                BUTTON - DECRYPT
+        '''
+        decrypt_button = Button(self.frame_encrypt,
+                                text=text_button_3,
+                                width=12,
+                                bg=os.getenv('blue_2'),
+                                fg=os.getenv('black'),
+                                command=self.decrypt_file)
         decrypt_button.grid(pady=10, padx=(4, 10))
 
-        self.sucess_label = Label(self.frame_encrypt, text='', fg=os.getenv('green'),
-                                  font=os.getenv('arial', os.getenv('medium_size_button')), bg=os.getenv('blue'))
+        '''
+        LABEL - Sucesso
+        '''
+        self.sucess_label = Label(self.frame_encrypt,
+                                  text='',
+                                  fg=os.getenv('green'),
+                                  font=(fonts['Helvetica'], 12),
+                                  bg=os.getenv('blue'))
         self.sucess_label.grid(pady=10)
 
 
