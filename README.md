@@ -7,7 +7,7 @@ Encriptar arquivos? Bom, se você quer mante-los seguros, é paranóico ou só g
 
 Com o Cryptosome você encripta arquivos de um maneira rápido e fácil.
 
-> Para a versão em inglês do README.md, cheque os arquivos [README-ENG-USA.md](README-ENG-USA.md)
+> Para a versão em inglês do README.md, cheque os arquivos [README-ENG-USA.md](README-ENG-USA.md).
 
 
 # Aspectos
@@ -22,4 +22,7 @@ blá, blá.
 
 Na computação, segue o mesmo parâmetro, sendo uma cifra de chave única podendo retornar 0 ou 1.
 
-![print01](Cryptosome\images\01.jpg)
+
+<p align="center">
+  <img src="https://github.com/CaioMadeira/Cryptosome/blob/master/images/01.JPG" alt="Sublime's custom image"/>
+</p>
