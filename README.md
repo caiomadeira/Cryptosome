@@ -7,9 +7,8 @@ Encriptar arquivos? Bom, se você quer mante-los seguros, é paranóico ou só g
 
 Com o Cryptosome você encripta arquivos de um maneira rápido e fácil.
 
-> Para a versão em inglês do README.md, cheque os arquivos [README-ENG-USA.md](README-ENG-USA.md).
-
-
+> Para a versão em inglês do README.md, cheque os arquivos [README-ENG-USA.md](README-ENG-USA.md).<br>
+>For an English version of README.md, check the [README-ENG-USA.md](README-ENG-USA.md).
 # Aspectos
 
 \* Versão: 1.0 *\
